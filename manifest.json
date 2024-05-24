@@ -1,0 +1,41 @@
+{
+  "name": "Quora Improver",
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "description": "Improve Quora",
+  "homepage_url": "https://github.com/jdunk/quora-improver",
+
+  "action": {
+    "default_icon": "icons/quora-logo-348.png",
+    "default_title": "Quora Improver"
+  },
+
+  "icons": {
+    "128": "icons/quora-logo-348.png"
+  },
+
+  "commands": {
+  },
+
+  "background": {
+    "service_worker": "service_worker.js"
+  },
+
+  "web_accessible_resources": [
+  ],
+
+  "content_scripts": [{
+    "run_at": "document_end",
+    "matches": ["https://*.quora.com/*"],
+    "js": ["content_script.js"]
+  }],
+
+  "permissions": [
+    "tabs",
+    "scripting"
+  ],
+
+  "host_permissions": [
+    "*://*.quora.com/*"
+  ]
+}
